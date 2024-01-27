@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block page_content %}
+
+<header>
+    <div id="icon" class="nav-icon"> 
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <nav>
+        <button><a href="{% url 'contact' %}">contacts</a></button> 
+        <button><a href="{% url 'home' %}">Home</a></button>
+        <button><a href="{% url 'experience' %}">portfolio</a></button> 
+    </nav>
+</header>
+
+<p style="color: white; font-size: 55px; text-align: left; font-weight: 3000px; margin-left: 1vw;">Update {{ experience.category }} </p>
+
+    <form method="POST">
+        {% csrf_token %}
+        
+        <label for="title">Category:</label>
+        <input type="text" id="title" list="category" name="category" value="{{ experience.category }}">
+        
+        <label for="credential">Organization</label>
+        <input type="text" name="organization" id="organization"  value="{{ experience.organization }}">
+
+        <label for="role">Role</label>
+        <input type="text" name="role" id="description" value="{{ experience.role }}">
+                
+        <input type="submit" value="Update Experience">
+    </form>
+{% endblock page_content %}

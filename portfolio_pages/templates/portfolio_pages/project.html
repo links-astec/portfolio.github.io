@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block page_content %}
+
+<div class="hamburger" onclick="toggleMenu(this)">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div>
+  
+  <!-- Create a side bar menu element with some links -->
+  <div class="sidebar">
+    <a href="#" class="active">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+  </div>
+<header>    
+    <nav>
+        <button><a href="{% url 'contact' %}">About</a></button> 
+        <button><a href="{% url 'home' %}">Services</a></button>
+        <button><a href="{% url 'portfolio' %}">portfolio</a></button> 
+    </nav>
+</header>
+<h1 style="color: white; line-height: 0.2;font-family: 'Montserrat', sans-serif;font-weight: 3000;font-size: 55px;margin-left: 18px;margin-top: 58px;position: absolute;">Projects  <a href="{% url 'create' %}" class=""><img src="{% static 'portfolio_pages/plus.png' %}" alt="add" style="width: 4vw; height: 7vh;" class="plus"></a></h1>
+<div class="project-grid">
+    {% for project in project_data %}
+        <div class="project">
+            <div class="top-section">
+                <p class="title" style="text-align: left;"><b style="font-weight: 3000px; color: rgb(207, 159, 0);">Title: </b>{{ project.title }}</p>
+            </div>
+            <div class="center-section" style="text-align: left;">
+                <p class="description" style="text-align: left;"><b style="font-weight: 3000px; color: rgb(207, 159, 0); text-align: left;">Description: </b>{{ project.description }}</p>
+            </div>
+            <div class="bottom-section">
+                <div class="credentials" style="bottom: 0; left: 0; margin-left: -15vh;">
+                    <a href="{{ project.credential }}" style="text-decoration: none;">
+                        <h4><img src="{% static 'portfolio_pages/3.png' %}" alt="credent" style="width: 6vw; height: 11vh; left: 0; bottom: 0;"><span style="margin-left: 8vw; color: white; "> Credential</span><img src="{% static 'portfolio_pages/5.png' %}" alt="credentials" style="height: 3.5vh; width: 1.7vw;">                                                            <button><a href="{% url 'delete' project.id %}" style="text-decoration: none; color: white;">Delete</a></button><button style="margin-right: -5vw;">                                            <a href="{% url 'update' project.id %}" style="text-decoration: none; color: white;">Update</a></button></h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        
+        
+        
+        </div>
+        
+        <div class="paginate" style="height: auto; text-align: center; vertical-align: middle;">
+            {% if project_data %}
+              {% if page_obj.has_previous %}
+                <!-- add text or icon for previous link and close the tag -->
+                <a href="?page={{ page_obj.previous_page_number }}" style="float: left; margin-left: 3vw; line-height: 0;"><img src="{% static 'portfolio_pages/14.png' %}" alt=""  class="plus" style="width: 5vw; height: 11vh; margin-bottom: 7vh;"></a>
+              {% endif %}
+              <h4 style="color: white; font-family: 'Montserrat'sans-serif;font-weight: 200;width: 10vw; display: inline-block;">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }} </h4>
+              {% if page_obj.has_next %}
+                <!-- add text or icon for next link and close the tag -->
+                <a href="?page={{ page_obj.next_page_number }}" style="float: right; margin-right: 3vw; line-height: 0;"><img src="{% static 'portfolio_pages/4.png' %}" alt=""  class="plus" style="width: 5vw; height: 11vh; margin-bottom: 7vh;"></a>
+              {% endif %}
+            {% endif %}
+          </div>
+
+
+
+
+{% endblock page_content %}

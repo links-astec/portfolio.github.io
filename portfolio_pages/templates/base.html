@@ -1,0 +1,716 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}My Personal Portfolio{% endblock title %}</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet">
+
+
+<style>
+    
+body {
+    font-family: Arial, sans-serif;
+    background: url('{% static "portfolio_pages/back.gif" %}') repeat-y center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    min-height: 100vh;
+    position: relative;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%);
+}
+
+header {
+    padding: 20px;
+}
+
+nav a {
+    color: rgb(255, 255, 255);
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+button {
+    background-color: #333333;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+button:hover{
+    background: darkgray;
+    color: #333333;
+    transform: scale(1.05);
+
+}
+button a:hover{
+    color: #333333;
+    transform: scale(1.05);
+
+}
+
+:root {
+    --gap: 20px;
+}
+.icons{
+
+    display: flex;
+    justify-content: space-between;
+    gap: var(--gap);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    float: center;
+    color: darkgray;
+}
+/* Define the style for the columns */
+.column {
+  float: left;
+  width: 45%;
+  position: inherit;
+}
+
+/* Clear the floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--gap);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    float: right;
+    color: darkgray;
+    
+}
+
+.bio-div {
+  background: linear-gradient(to right, black,rgb(71, 70, 70));
+  color: white;  
+  width: 29vw; 
+  height: 24.33vw; 
+  border-radius: 25px;
+  margin-left: 50px;
+  margin-bottom: 5vw;
+  position: absolute;
+  text-size-adjust: 100%;
+  text-align: center;
+  font-size: 5vw;
+  padding: 10px 10px 5px 20px;
+}
+.port {
+  background: linear-gradient(to right, black,rgb(71, 70, 70));
+  color: white;  
+  width: 25vw; 
+  height: 24.33vw; 
+  border-radius: 25px;
+  position: absolute;
+  text-size-adjust: 100%;
+  text-align: center;
+  font-size: 5vw;
+  padding: 10px 10px 5px 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  justify-content: space-evenly;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.port:hover {
+            transform: scale(1.05);
+        }
+
+        
+.content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.top-section {
+    width: 100%;
+}
+
+.bottom-section {
+    width: 100%;
+}
+
+.top-section,
+.bottom-section {
+    text-align: left;
+}
+
+.title,
+.description {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    margin: 0;
+    text-align: left;
+}
+
+.center-section {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.credentials {
+    text-align: center;
+    margin-left: 0;
+    width: auto;
+}
+
+.credentials h4 {
+    margin: 5px 0;
+    font-size: 25px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button {
+    background-color: #333333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.button a {
+    text-decoration: none;
+    color: white;
+}
+
+.button:hover {
+    background: darkgray;
+    color: #333333;
+    transform: scale(1.05);
+}
+
+.button a:hover {
+    color: #333333;
+    transform: scale(1.05);
+}
+
+.nono:hover {
+    transform: scale(1.05);
+}
+
+
+.cred{
+   color: white;
+    line-height: 0.2;
+    font-family: Montserrat, sans-serif;
+    font-weight: 300;
+    font-size: 25px; 
+    bottom: 0; 
+    right: 0;
+    position: fixed;
+    margin-bottom: 10vh;
+    margin-right: 10vw;
+    width: 15vw;
+    height: 5vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+
+}
+.plus{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+.plus:hover{
+
+    transform: scale(1.05);
+}
+.cred:hover{
+    transform: scale(1.05);
+}
+.my_picture {
+        width: 44vw;
+        height: 37.33vw;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin-bottom: 30px;
+        margin-right: 60px;
+    }
+.blocks{
+    margin-top: 25vh;
+    position: relative;
+}
+
+
+.parent-container {
+    height: 100vh; 
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30vh;
+  width: 100%;
+  margin-top: 29vh;
+  margin-left: -9vh;
+}
+.sentence-animation{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+}
+
+.sentence{
+        display: none;
+        animation: fadeInOut 2s ease-in-out infinite;
+        text-overflow: ellipsis;
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 55px;
+        text-align: center;
+        margin: 10px;
+        font-weight: 200;
+    }
+
+
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  text-align: left;
+  color: white;
+        }
+
+        input {
+            width: calc(100% - 12px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid darkgray;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: #333333;
+        }
+        input:hover{
+            color: #333333;
+        }
+
+input[type="submit"] {
+            background-color: #333333;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+        }
+input[type="submit"]:hover{
+    background: darkgray;
+    color: #333333;
+    transform: scale(1.05);
+}
+input[type="submit"] a:hover{
+    color: #333333;
+    transform: scale(1.05);
+}
+form{
+    background: linear-gradient(to right, black,rgb(71, 70, 70));
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    margin-left: 38vw;
+}
+.project-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 120px; /* Adjust as needed */
+            padding: 20px;
+        }
+
+        .project {
+            background: linear-gradient(to right, black, rgb(71, 70, 70));
+            color: white;
+            border-radius: 25px;
+            width: calc(43% - 20px); 
+            height: 48vh;
+            margin-bottom: 20px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+        }
+       
+        .project:hover {
+            transform: scale(1.05);
+        }
+        .experience {
+            background: linear-gradient(to right, black, rgb(71, 70, 70));
+            color: white;
+            border-radius: 25px;
+            width: calc(50% - 20px); 
+            height: 48vh;
+            margin-bottom: 20px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            margin-left: 50vh;
+        }
+       
+        .experience:hover {
+            transform: scale(1.05);
+        }
+
+        .hamburger {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* Create three horizontal lines for the icon */
+.hamburger div {
+  width: 100%;
+  height: 4px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* Define the style for the side bar menu */
+.sidebar {
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: -300px; /* Change this value to hide the sidebar completely */
+  background: linear-gradient(to right, black,rgb(71, 70, 70));
+  transition: 0.4s;
+  overflow-x: hidden;
+  padding: 15px;
+}
+
+/* Define the style for the menu items */
+.sidebar a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+/* Define the style for the active menu item */
+.sidebar a.active {
+  color: white;
+  background-color: gray;
+}
+
+/* Define the style for the menu item on hover */
+.sidebar a:hover {
+  color: white;
+  background-color: darkgray;
+}
+
+/* Rotate the first and third line of the icon and hide the second line when the menu is open */
+.change .bar1 {
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
+/* Slide the menu to the right when the menu is open */
+.change + .sidebar {
+  left: 0;
+}
+  
+@keyframes fadeInOut {
+  0%, 100%{
+    opacity: 0;
+  }
+  10%, 90%{
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 768px) {
+   
+    header,
+    nav {
+        text-align: center;
+    }
+
+    form {
+        margin-left: 5%;
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 25px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .my_picture {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
+
+    .blocks {
+        margin-top: 140px;
+    }
+
+    .port,
+    .project {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
+
+    .project img {
+        width: 100%;
+        height: auto;
+    }
+
+    .paginate h4 {
+        width: 80%;
+        display: inline-block;
+    }
+
+    .paginate a {
+        line-height: 0;
+        margin: 0 3vw;
+    }
+
+    .container {
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    .sentence-animation {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .sentence {
+        width: 100%;
+        text-align: center;
+    }
+
+    .cred {
+        text-align: center;
+    }
+
+    .cred h3 {
+        display: inline-block;
+    }
+
+    .cred img {
+        width: 2vw;
+        height: 4.2vh;
+    }
+
+    .plus {
+        width: 100%;
+        height: auto;
+        margin-bottom: 7vh;
+    }
+
+    .bio-div {
+        font-size: 18px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    input[type="submit"],
+    button a {
+        padding: 10px 15px;
+    }
+
+    .row {
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .column {
+        width: 100%;
+    }
+
+    footer {
+        position: relative;
+        height: auto;
+        padding-bottom: 20px;
+    }
+
+    .icons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .icons img {
+        width: 40px;
+        height: auto;
+        margin: 5px 0;
+    }
+
+    .icons p {
+        margin: 5px 0;
+        text-align: center;
+    }
+
+    .icons:last-child {
+        margin-top: 10px;
+        margin-left: auto;
+    }
+    body {
+    background: url('{% static "portfolio_pages/back.gif" %}') repeat-y center center fixed;
+    background-size: auto;
+}
+.main {
+    background: none;
+}
+
+.port,
+.project {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form {
+    margin-left: 5%;
+    width: 90%;
+}
+
+.project-grid,
+.experience {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav {
+    float: none;
+    text-align: center;
+}
+
+nav a {
+    display: block;
+    padding: 10px;
+}
+
+.bar {
+    display: block;
+}
+
+.bar nav {
+    flex-direction: column;
+}
+
+.port {
+    background: linear-gradient(to right, black, rgb(71, 70, 70));
+    color: white;
+    width: 25vw;
+    height: 24.33vw;
+    border-radius: 25px;
+    position: absolute;
+    text-size-adjust: 100%;
+    text-align: center;
+    font-size: 5vw;
+    padding: 10px 10px 5px 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+}
+
+/* Shared styles for both large and small screens */
+
+
+
+
+
+</style>
+<script>
+     function toggleMenu(x) {
+      // Add or remove the change class to the icon
+      x.classList.toggle("change");
+      // Add or remove the change class to the menu
+      document.querySelector(".sidebar").classList.toggle("change");
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+        animateSentences();
+    });
+
+    function animateSentences() {
+        const sentences = document.querySelectorAll(".sentence");
+        let index = 0;
+
+        function displaySentence() {
+            if (index < sentences.length) {
+                sentences[index].style.display = "block";
+                setTimeout(() => {
+                    sentences[index].style.display = "none";
+                    index++;
+                    displaySentence();
+                }, 2000); // Display each sentence for 1 second
+            } else {
+                index = 0; // Reset index to repeat the animation
+                displaySentence();
+            }
+        }
+
+        displaySentence();
+    }
+</script>
+</head>
+<body class="containers">
+    {% block page_content %}{% endblock page_content %}
+    </body>
+</html>

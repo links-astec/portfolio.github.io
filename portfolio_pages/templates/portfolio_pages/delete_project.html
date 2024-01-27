@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block page_content %}
+
+<div class="hamburger" onclick="toggleMenu(this)">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div>
+  
+  <!-- Create a side bar menu element with some links -->
+  <div class="sidebar">
+    <a href="#" class="active">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+  </div>
+<header>    
+    <nav>
+        <button><a href="{% url 'contact' %}">About</a></button> 
+        <button><a href="{% url 'home' %}">Services</a></button>
+        <button><a href="{% url 'portfolio' %}">portfolio</a></button> 
+    </nav>
+</header>
+<p style="color: white; font-size: 55px; text-align: left; font-weight: 3000px; margin-left: 1vw;">Delete Project </p>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <h2 style="color: white;">Are you sure you want to delete {{ project.title }}?</h2>  
+
+        <input type="submit" value="Yes, Delete it">
+        <button><a href="{% url 'project' %}" style="text-decoration: none; color: white;">No, Cancel</a></button>
+    </form>
+{% endblock page_content %}

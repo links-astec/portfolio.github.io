@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block page_content %}
+
+<div class="hamburger" onclick="toggleMenu(this)">
+  <div class="bar1"></div>
+  <div class="bar2"></div>
+  <div class="bar3"></div>
+</div>
+
+<!-- Create a side bar menu element with some links -->
+<div class="sidebar">
+  <a href="#" class="active">Home</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Contact</a>
+</div>
+<header>    
+  <nav>
+      <button><a href="{% url 'home' %}">Home</a></button> 
+      <button><a href="{% url 'home' %}">Services</a></button>
+      <button><a href="{% url 'portfolio' %}">portfolio</a></button> 
+  </nav>
+</header>
+<h1 style="color: white; line-height: 0.2;font-family: 'Montserrat', sans-serif;font-weight: 300;font-size: 55px;margin-left: 18px;margin-top: 58px;position: absolute;">About</h1>
+<!-- Create a row element to contain the columns -->
+<div class="row" style="margin-top: 17vh;margin-left: 2vw;font-family: 'Montserrat',sans-serif;font-weight: 1500;">
+    <!-- Create a column element for the left side -->
+    <div class="column">
+      <!-- Add some content -->
+      <p style="color:rgb(255, 255, 255);" >
+        <strong>About Me:</strong><br>
+        Hi there! I'm Gabriel Nii Attoh Quaye, and my tech journey kicked off in 2023. Fueled by a passion for AI and ML, I find joy in the realms of Python and JavaScripting. <br>
+         Beyond the lines of code, I am an avid enthusiast of artwork and singing, two forms of expression that bring a unique balance to my tech-centric world. As I navigate the exciting landscape of technology, <br>
+          my projects span from crafting innovative web apps to exploring the fascinating realm of TinyML. <br><br><br><br>     
+        <strong>Personal Insights</strong><br>
+        In this ever-evolving tech space, I am a firm believer in continuous learning. The intricate dance between art and science fascinates me, and I am dedicated to pushing the boundaries of what's possible. <br> 
+        When I'm not immersed in algorithms or designing user interfaces, <br>
+        you can often find me creating visual art or harmonizing melodies. Life is a grand symphony of code and creativity, <br>
+        and I'm excited to contribute my notes to this ever-expanding composition.
+      </p>
+    </div>
+    <!-- Create a column element for the right side -->
+    <div class="column" style="margin-right: 1vw;">
+      <!-- Add some content -->
+      <p style="color: white;font-family: 'Montserrat',sans-serif;">
+        <strong>Skills & Expertise:</strong><br>
+         My professional toolkit encompasses expertise in AI and ML, honed through hands-on projects and a deep dive into the world of Python and JavaScript. From crafting dynamic web apps to exploring the fascinating possibilities of TinyML, I thrive on the challenges of diverse projects. Collaboration is at the core of my approach, and I take pride in leveraging collective strengths for outstanding results. <br><br><br><br><br>
+        <strong>Education and Future Endeavors</strong><br>
+           Currently on an academic journey at Kwame Nkrumah University of Science and Technology, I anticipate completing my degree in 2027. The academic environment provides a rich backdrop for my growth, and I eagerly anticipate the knowledge and experiences that will shape my future endeavors. As I continue to straddle the worlds of academia and technology, my aim is to contribute meaningfully to both realms, creating a harmonious melody of learning and innovation.
+      </p>
+    </div>
+  </div>
+  
+<footer style="background: linear-gradient(to right, black, rgb(71, 70, 70));bottom: 0; position: absolute; width: 100%;height: 12vh;">
+    <div class="icons">
+        <img src="{% static 'portfolio_pages/phone.png' %}" alt="phone number" style="width: 3.4vw;height: 7vh;margin-top: 2.7vh;margin-left: 1vw;">
+        <img src="{% static 'portfolio_pages/email.png' %}" alt="email" style="width: 5vw;height: 10vh; margin-top: 1vh; margin-left: 0vw;">
+        <img src="{% static 'portfolio_pages/discord.png' %}" alt="dicord account" style="width: 5vw;height: 11vh;margin-top: 0.7vh;margin-left: 7vw;">
+        <img src="{% static 'portfolio_pages/github.png' %}" alt="github" style="width: 3.5vw;height: 8vh;margin-top: 2vh;margin-right: 0vw;">
+        <img src="{% static 'portfolio_pages/whatsapp.png' %}" alt="github" style="width: 4vw;height: 9vh;margin-right: 15vw;margin-top:1vh;">
+    </div>
+   <div class="icons" style="margin-top: -7vh; margin-left: 4vw;">
+    <p style="color: white;font-family: 'Montserrat'sans-serif;font-size: 15px;margin-left: 1vw; margin-top: 0vh;">+233 553 - 910 - 043</p>
+    <p style="color: white;font-family: 'Montserrat'sans-serif;font-size: 15px;margin-left: -2vw;margin-top: 0vh;">gabbyquaye2021@gmail.com</p>
+    <p style="color: white;font-family: 'Montserrat'sans-serif;font-size: 15px;margin-left: 0.9vw; margin-top: 0vh;">@linksastec77</p>
+    <p style="color: white;font-family: 'Montserrat'sans-serif;font-size: 15px;margin-left: 4vh;margin-top: 0vh;">@links-astec</p>
+    <p style="color: white;font-family: 'Montserrat'sans-serif;font-size: 15px;margin-top: 0vh;margin-right: 5vw;">+233 553 - 910 - 043</p>
+   </div>
+</footer>
+
+{% endblock page_content %}
